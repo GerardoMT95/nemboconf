@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivysettings>
+	<settings defaultCache="${basedir}/build/cache" defaultResolver="urlResolver"/>
+	<resolvers>
+		<url name="urlResolver">
+			<artifact pattern="TOBECONFIG" />
+			<artifact pattern="TOBECONFIG" />
+			<ivy pattern="TOBECONFIG" />
+		</url>
+	</resolvers>
+</ivysettings>

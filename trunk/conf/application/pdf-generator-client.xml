@@ -1,0 +1,60 @@
+<porta-delegata name="nemboconf.pd.modolpdfgeneratorsrv">
+	<services>
+		<service name="nemboconf.pd.modolpdfgeneratorsrv.service" public-interface-class="TOBECONFIG" top-version="1.0.0">
+			<operations>
+				<operation name="generaPDFDaFile" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="fileToGenerate" type="TOBECONFIG" />							
+					</param-list>
+					<ret-val type="byte[]" />
+				</operation>
+			
+				<operation name="assemblaPdf" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="fileList" type="TOBECONFIG" />	
+						<param name="specificheAssemblaggio" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="byte[]" />
+				</operation>
+				
+				<operation name="toPdfA" type="synch-call"  since="1.1.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="pdfaInputRequest" type="TOBECONFIG" />	
+					</param-list>
+					<ret-val type="byte[]" />
+				</operation>				
+
+				<operation name="toStaticPdf" type="synch-call"  since="1.1.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="pdfStaticInputRequest" type="TOBECONFIG" />	
+					</param-list>
+					<ret-val type="byte[]" />
+				</operation>				
+								
+			</operations>
+		</service>
+	</services>
+	<config>
+		<url-pa>not used</url-pa>
+		<pluggable-pd-list chooser-class="TOBECONFIG">
+			<pluggable-pd name="nemboconf.pd.modolpdfgeneratorsrv.business" class="TOBECONFIG" url-pa="modol.modolpdfgeneratorsrv.ejb.ModolPdfGeneratorSrvPA"
+				url-qm="">
+				<properties>
+					<property name="java.naming.provider.url" value="TOBECONFIG" />
+					<!-- initial contxt factory per WLS92 -->
+					<property name="java.naming.factory.initial" value="weblogic.jndi.WLInitialContextFactory" />
+				</properties>
+			</pluggable-pd>
+		</pluggable-pd-list>
+				
+		<queue-manager url="" />
+	</config>
+</porta-delegata>

@@ -1,0 +1,145 @@
+<porta-delegata name="nemboconf.pd.modolsrv">
+	<services>
+		<service name="nemboconf.pd.modolsrv.service" public-interface-class="TOBECONFIG" top-version="1.0.0">
+			<operations>
+				<operation name="elencoModuliDisponibili" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="salvaSuIndex" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />
+						<param name="indexCredentials" type="TOBECONFIG" />
+						<param name="requestInputStream" type="byte[]" />
+						<param name="metadatoIndex" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="mergeModulo" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="modulo" type="TOBECONFIG" />
+						<param name="xmlModel" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="processForm" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="modulo" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="inserisciApplicazione" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />						
+						<param name="ruoli" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="inserisciModello" type="synch-call"  since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />
+						<param name="modello" type="TOBECONFIG" />												
+						<param name="contenutoModello" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="elencoRendererModality" type="synch-call"  since="1.0.0">
+					<param-list/>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="inserisciModulo" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="ruoli" type="TOBECONFIG" />
+						<param name="utente" type="TOBECONFIG" />
+						<param name="modulo" type="TOBECONFIG" />												
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="elencoModelli" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="ricercaModelli" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+						<param name="criterioRicercaModello" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="elencoRuoliAssociati" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				<operation name="cancellaModello" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+						<param name="richiestaCancellazioneModello" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="void" />
+				</operation>
+				<operation name="aggiornaModulo" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+						<param name="richiestaAggiornamentoModulo" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="void" />
+				</operation>
+				<operation name="cancellaModulo" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+						<param name="richiestaCancellazioneModulo" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="void" />
+				</operation>
+				<operation name="ricercaModuli" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="applicazione" type="TOBECONFIG" />	
+						<param name="utente" type="TOBECONFIG" />
+						<param name="criterioRicercaModello" type="TOBECONFIG" />
+					</param-list>
+					<ret-val type="TOBECONFIG" />
+				</operation>
+				
+			</operations>
+		</service>
+	</services>
+  
+	<config>
+  
+		<url-pa>not_used</url-pa>
+		<pluggable-pd-list chooser-class="TOBECONFIG">
+			<pluggable-pd
+        name="nemboconf.pd.modolsrv.business"
+        class="TOBECONFIG"
+        url-pa="modol.modolsrv.ejb.ModolSrvPA">
+				<properties>
+					<property name="java.naming.provider.url" value="TOBECONFIG" />
+					<property name="java.naming.factory.initial" value="weblogic.jndi.WLInitialContextFactory" />
+				</properties>
+			</pluggable-pd>
+		</pluggable-pd-list>				
+		<queue-manager url="not_used" />
+    
+	</config>
+</porta-delegata>
